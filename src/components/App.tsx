@@ -1,14 +1,18 @@
 import { Container } from './Container';
 import { Header } from './Header';
+import { InputField } from './InputField';
+import { Section } from './Section';
 
 function App() {
   return (
     <>
       <Header />
       <main>
-        <Container>
-          <h1>Hello</h1>
-        </Container>
+        <Section>
+          <Container>
+            <InputField />
+          </Container>
+        </Section>
       </main>
     </>
   );

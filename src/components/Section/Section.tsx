@@ -1,3 +1,5 @@
+import './Section.module.scss';
+
 interface SectionProps {
   children: React.ReactNode;
   style?: React.CSSProperties;

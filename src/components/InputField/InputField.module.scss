@@ -1,0 +1,16 @@
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field {
+  padding-left: 50px;
+  width: 100%;
+  height: 50px;
+}
+
+.img {
+  position: absolute;
+  left: 20px;
+}
