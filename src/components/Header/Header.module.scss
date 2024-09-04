@@ -23,3 +23,11 @@ header {
   width: 20px;
   height: 20px;
 }
+
+.darkModeIcon {
+  filter: invert(1);
+}
+
+.lightModeIcon {
+  filter: invert(0);
+}

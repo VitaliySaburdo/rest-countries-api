@@ -20,6 +20,9 @@ export const Header = () => {
             aria-label={`Switch to ${theme ? 'light' : 'dark'} mode`}
           >
             <img
+              className={
+                theme === 'dark' ? style.darkModeIcon : style.lightModeIcon
+              }
               src={theme === 'dark' ? Moon : Sun}
               alt={
                 theme === 'dark'
