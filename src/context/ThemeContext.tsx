@@ -7,23 +7,23 @@ import {
 } from 'react';
 
 type ThemeContextType = {
-  theme: boolean;
+  theme: string;
   toggleTheme: () => void;
 };
 
-const ThemeContext = createContext<ThemeContextType | undefined>(
+export const ThemeContext = createContext<ThemeContextType | undefined>(
   undefined
 );
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [theme, setTheme] = useState<boolean>(true);
+  const [theme, setTheme] = useState<string>('light');
 
   useEffect(() => {
-    document.body.className = theme ? 'dark-mode' : 'light-mode';
+    document.body.className = theme === 'light' ? 'light-mode' : 'dark-mode';
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => !prevTheme);
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
   return (
