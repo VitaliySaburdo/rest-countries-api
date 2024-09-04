@@ -1,11 +1,15 @@
 import { Container } from './Container';
+import { Header } from './Header';
 
 function App() {
   return (
     <>
-      <Container>
-        <h1>Hello</h1>
-      </Container>
+      <Header />
+      <main>
+        <Container>
+          <h1>Hello</h1>
+        </Container>
+      </main>
     </>
   );
 }
