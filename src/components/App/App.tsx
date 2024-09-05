@@ -4,6 +4,7 @@ import { InputField } from '../InputField';
 import { Section } from '../Section';
 import { useTheme } from '../../context/useTheme';
 import style from './App.module.scss';
+import { FilterField } from '../FilterField';
 
 function App() {
   const { theme } = useTheme();
@@ -14,6 +15,7 @@ function App() {
         <Section>
           <Container>
             <InputField />
+            <FilterField />
           </Container>
         </Section>
       </main>

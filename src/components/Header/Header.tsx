@@ -15,7 +15,7 @@ export const Header = () => {
           <button
             onClick={toggleTheme}
             className={style.btn}
-            aria-label={`Switch to ${theme ? 'light' : 'dark'} mode`}
+            aria-label={`Switch to ${theme} mode`}
           >
             <img
               className={`${style.icon} ${
