@@ -16,10 +16,13 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(
 );
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [theme, setTheme] = useState<string>('light');
+  const [theme, setTheme] = useState<string>(
+    localStorage.getItem('theme') || 'light'
+  );
 
   useEffect(() => {
     document.body.className = theme === 'light' ? 'light-mode' : 'dark-mode';
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {

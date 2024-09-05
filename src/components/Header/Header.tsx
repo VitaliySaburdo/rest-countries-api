@@ -7,8 +7,6 @@ import style from './Header.module.scss';
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
 
-  console.log(theme);
-
   return (
     <Container>
       <header>
@@ -20,9 +18,9 @@ export const Header = () => {
             aria-label={`Switch to ${theme ? 'light' : 'dark'} mode`}
           >
             <img
-              className={
+              className={`${style.icon} ${
                 theme === 'dark' ? style.darkModeIcon : style.lightModeIcon
-              }
+              }`}
               src={theme === 'dark' ? Moon : Sun}
               alt={
                 theme === 'dark'

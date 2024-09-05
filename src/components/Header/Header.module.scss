@@ -22,10 +22,19 @@ header {
   @include invisible-btn;
   width: 20px;
   height: 20px;
+  overflow: hidden;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+  transform: scale(0.8);
 }
 
 .darkModeIcon {
   filter: invert(1);
+  transform: scaleX(-100%);
 }
 
 .lightModeIcon {
