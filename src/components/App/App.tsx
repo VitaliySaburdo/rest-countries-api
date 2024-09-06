@@ -33,10 +33,7 @@ function App() {
           const data = await getCountryByName(name);
           setCountries(data as Country[]);
         } else if (region) {
-          const data =
-            region === 'all'
-              ? await getAllCountry()
-              : await getCountryByRegion(region);
+          const data = await getCountryByRegion(region);
           setCountries(data as Country[]);
         } else {
           const data = await getAllCountry();

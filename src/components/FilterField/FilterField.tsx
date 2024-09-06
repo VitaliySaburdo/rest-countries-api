@@ -24,7 +24,6 @@ export const FilterField: React.FC<FilterFieldProps> = ({ onRegionFilter }) => {
           <option value="" hidden>
             Select Region
           </option>
-          <option value="all">All Countries</option>
           <option value="africa">Africa</option>
           <option value="america">America</option>
           <option value="asia">Asia</option>
