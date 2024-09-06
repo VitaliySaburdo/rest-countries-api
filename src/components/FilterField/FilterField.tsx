@@ -1,19 +1,35 @@
 import style from './FilterField.module.scss';
 import Arrow from '../../assets/images/icon-arrow-down.png';
 
-export const FilterField = () => {
+interface FilterFieldProps {
+  onRegionFilter: (name: string) => void;
+}
+
+export const FilterField: React.FC<FilterFieldProps> = ({ onRegionFilter }) => {
+  const handleOnSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const region = e.currentTarget.value;
+    onRegionFilter(region);
+  };
+
   return (
     <>
       <div className={style.fieldWrapper}>
         <img className={style.arrow} src={Arrow} alt="arrow" width={10} />
-        <select className={style.field} name="filter" id="filter">
-          Filter by Region
-          <option value="All">Select Region</option>
-          <option value="Africa">Africa</option>
-          <option value="America">America</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
+        <select
+          onChange={handleOnSelect}
+          className={style.field}
+          name="filter"
+          id="filter"
+        >
+          <option value="" hidden>
+            Select Region
+          </option>
+          <option value="all">All Countries</option>
+          <option value="africa">Africa</option>
+          <option value="america">America</option>
+          <option value="asia">Asia</option>
+          <option value="europe">Europe</option>
+          <option value="oceania">Oceania</option>
         </select>
       </div>
     </>
