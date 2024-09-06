@@ -13,7 +13,7 @@ export const FilterField: React.FC<FilterFieldProps> = ({ onRegionFilter }) => {
 
   return (
     <>
-      <div className={style.fieldWrapper}>
+      <div className={style.selectWrapper}>
         <img className={style.arrow} src={Arrow} alt="arrow" width={10} />
         <select
           onChange={handleOnSelect}
@@ -21,9 +21,7 @@ export const FilterField: React.FC<FilterFieldProps> = ({ onRegionFilter }) => {
           name="filter"
           id="filter"
         >
-          <option value="" hidden>
-            Select Region
-          </option>
+          <option value="">Select Region</option>
           <option value="africa">Africa</option>
           <option value="america">America</option>
           <option value="asia">Asia</option>
