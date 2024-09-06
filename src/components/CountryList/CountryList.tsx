@@ -1,4 +1,5 @@
 import { Country } from '../../../types/Country';
+import { CountryItem } from '../CountryItem';
 
 interface CountryListProps {
   countries: Country[];
@@ -9,10 +10,7 @@ export const CountryList: React.FC<CountryListProps> = ({ countries }) => {
     <>
       <ul>
         {countries.map((country, index) => (
-          <li key={index}>
-            <img src={country.flags.png} alt="" />
-            <h2>{country.name.common}</h2>
-          </li>
+          <CountryItem key={index} country={country} />
         ))}
       </ul>
     </>
