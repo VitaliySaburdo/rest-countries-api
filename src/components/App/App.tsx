@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container } from '../Container';
 import { Header } from '../Header';
 import { InputField } from '../InputField';
@@ -6,15 +6,23 @@ import { Section } from '../Section';
 import { useTheme } from '../../context/useTheme';
 import { FilterField } from '../FilterField';
 import { CountryList } from '../CountryList';
-import data from '../../data/data.json';
-// import {Country} from '../../../types/Country';
+import { ApiService } from '../../ApiService/ApiService';
+import { Country } from '../../../types/Country';
 import style from './App.module.scss';
+// import data from '../../data/data.json';
 
 function App() {
   const { theme } = useTheme();
-  const [countries, setCountries] = useState(data);
+  const [countries, setCountries] = useState<Country[]>([]);
 
-  console.log(data);
+  useEffect(() => {
+    const fetchCountries = async () => {
+      const data = await ApiService();
+      console.log(data);
+      setCountries(data as Country[]);
+    };
+    fetchCountries();
+  }, []);
 
   return (
     <>

@@ -9,7 +9,10 @@ export const CountryList: React.FC<CountryListProps> = ({ countries }) => {
     <>
       <ul>
         {countries.map((country, index) => (
-          <li key={index}>{country.name}</li>
+          <li key={index}>
+            <img src={country.flags.png} alt="" />
+            <h2>{country.name.common}</h2>
+          </li>
         ))}
       </ul>
     </>
