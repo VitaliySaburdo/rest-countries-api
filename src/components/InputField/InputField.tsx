@@ -2,8 +2,18 @@ import { useTheme } from '../../context/useTheme';
 import Search from '../../assets/images/search.png';
 import style from './InputField.module.scss';
 
-export const InputField = () => {
+interface InputFieldProps {
+  onSearch: (name: string) => void;
+}
+
+export const InputField: React.FC<InputFieldProps> = ({ onSearch }) => {
   const { theme } = useTheme();
+
+  const handleSearch = (e: React.FormEvent<HTMLInputElement>) => {
+    const name = e.currentTarget.value;
+    onSearch(name);
+  };
+
   return (
     <>
       <div className={style.inputContainer}>
@@ -17,12 +27,14 @@ export const InputField = () => {
           height={25}
         />
         <input
+          onInput={handleSearch}
           className={
             theme === 'dark' ? `${style.field} ${style.darkField}` : style.field
           }
           type="text"
           name="country"
           id="country"
+          placeholder="Search for a country..."
         />
       </div>
     </>

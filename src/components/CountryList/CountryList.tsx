@@ -1,5 +1,6 @@
 import { Country } from '../../../types/Country';
 import { CountryItem } from '../CountryItem';
+import style from './CountryList.module.scss';
 
 interface CountryListProps {
   countries: Country[];
@@ -8,7 +9,7 @@ interface CountryListProps {
 export const CountryList: React.FC<CountryListProps> = ({ countries }) => {
   return (
     <>
-      <ul>
+      <ul className={style.list}>
         {countries.map((country, index) => (
           <CountryItem key={index} country={country} />
         ))}

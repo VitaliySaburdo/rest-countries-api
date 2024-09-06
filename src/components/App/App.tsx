@@ -6,23 +6,37 @@ import { Section } from '../Section';
 import { useTheme } from '../../context/useTheme';
 import { FilterField } from '../FilterField';
 import { CountryList } from '../CountryList';
-import { ApiService } from '../../ApiService/ApiService';
+import { getAllCountry, getCountryByName } from '../../ApiService/ApiService';
 import { Country } from '../../../types/Country';
 import style from './App.module.scss';
-// import data from '../../data/data.json';
 
 function App() {
   const { theme } = useTheme();
   const [countries, setCountries] = useState<Country[]>([]);
+  const [name, setName] = useState('');
 
   useEffect(() => {
     const fetchCountries = async () => {
-      const data = await ApiService();
-      console.log(data);
-      setCountries(data as Country[]);
+      console.log(name);
+      if (name) {
+        try {
+          const data = await getCountryByName(name);
+          setCountries(data as Country[]);
+        } catch (error) {
+          console.error('Country not found:', error);
+          setCountries([]);
+        }
+      } else {
+        const data = await getAllCountry();
+        setCountries(data as Country[]);
+      }
     };
     fetchCountries();
-  }, []);
+  }, [name]);
+
+  const handleOnSearch = (searchName: string) => {
+    setName(searchName);
+  };
 
   return (
     <>
@@ -30,7 +44,7 @@ function App() {
       <main className={(theme === 'dark' && style.dark) || undefined}>
         <Section>
           <Container>
-            <InputField />
+            <InputField onSearch={handleOnSearch} />
             <FilterField />
             <CountryList countries={countries} />
           </Container>
