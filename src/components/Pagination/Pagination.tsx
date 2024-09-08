@@ -28,24 +28,85 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   const totalPages = Math.ceil(countries.length / itemsPerPage);
 
+  const renderPagination = () => {
+    const pages = [];
+
+    pages.push(
+      <li key={1}>
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            handlePageChange(1);
+          }}
+          style={{
+            cursor: 'pointer',
+            marginRight: '8px',
+            fontWeight: currentPage === 1 ? 'bold' : 'normal',
+          }}
+        >
+          1
+        </a>
+      </li>
+    );
+
+    if (currentPage > 4) {
+      pages.push(<li key="dots1">...</li>);
+    }
+
+    const startPage = Math.max(2, currentPage - 1);
+    const endPage = Math.min(totalPages - 1, currentPage + 4);
+
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(
+        <li key={i}>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              handlePageChange(i);
+            }}
+            style={{
+              cursor: 'pointer',
+              marginRight: '8px',
+              fontWeight: currentPage === i ? 'bold' : 'normal',
+            }}
+          >
+            {i}
+          </a>
+        </li>
+      );
+    }
+
+    if (currentPage < totalPages - 2) {
+      pages.push(<li key="dots2">...</li>);
+    }
+
+    pages.push(
+      <li key={totalPages}>
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            handlePageChange(totalPages);
+          }}
+          style={{
+            cursor: 'pointer',
+            marginRight: '8px',
+            fontWeight: currentPage === totalPages ? 'bold' : 'normal',
+          }}
+        >
+          {totalPages}
+        </a>
+      </li>
+    );
+
+    return pages;
+  };
+
   return (
     <>
-      <ul className={style.wrapper}>
-        {[...Array(totalPages)].map((_, index) => (
-          <li key={index}>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                handlePageChange(index + 1);
-              }}
-              style={{ cursor: 'pointer', marginRight: '8px' }}
-            >
-              {index + 1}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <ul className={style.wrapper}>{renderPagination()}</ul>
     </>
   );
 };
