@@ -13,10 +13,12 @@ import {
 } from '../../ApiService/ApiService';
 import { Country } from '../../../types/Country';
 import style from './App.module.scss';
+import { Pagination } from '../Pagination';
 
 function App() {
   const { theme } = useTheme();
   const [countries, setCountries] = useState<Country[]>([]);
+  const [countriesArr, setCountriesArr] = useState<Country[]>([]);
   const [name, setName] = useState('');
   const [region, setRegion] = useState('');
 
@@ -55,6 +57,10 @@ function App() {
     setRegion(searchRegion);
   };
 
+  const handlePagination = (array: Country[]) => {
+    setCountriesArr(array);
+  };
+
   return (
     <>
       <Header />
@@ -63,7 +69,8 @@ function App() {
           <Container>
             <InputField onSearch={handleOnSearch} />
             <FilterField onRegionFilter={handleOnRegionFilter} />
-            <CountryList countries={countries} />
+            <CountryList countries={countriesArr} />
+            <Pagination countries={countries} setFragment={handlePagination} />
           </Container>
         </Section>
       </main>
