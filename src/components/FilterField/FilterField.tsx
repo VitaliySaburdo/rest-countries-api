@@ -1,3 +1,4 @@
+import { useTheme } from '../../context/useTheme';
 import style from './FilterField.module.scss';
 import Arrow from '../../assets/images/icon-arrow-down.png';
 
@@ -6,6 +7,7 @@ interface FilterFieldProps {
 }
 
 export const FilterField: React.FC<FilterFieldProps> = ({ onRegionFilter }) => {
+  const { theme } = useTheme();
   const handleOnSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const region = e.currentTarget.value;
     onRegionFilter(region);
@@ -14,10 +16,21 @@ export const FilterField: React.FC<FilterFieldProps> = ({ onRegionFilter }) => {
   return (
     <>
       <div className={style.selectWrapper}>
-        <img className={style.arrow} src={Arrow} alt="arrow" width={10} />
+        <img
+          className={
+            theme === 'dark'
+              ? `${style.icon} ${style.darkModeIcon}`
+              : style.icon
+          }
+          src={Arrow}
+          alt="arrow"
+          width={10}
+        />
         <select
           onChange={handleOnSelect}
-          className={style.field}
+          className={
+            theme === 'dark' ? `${style.darkField} ${style.field}` : style.field
+          }
           name="filter"
           id="filter"
         >
