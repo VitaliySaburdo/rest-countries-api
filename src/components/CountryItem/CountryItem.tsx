@@ -1,3 +1,4 @@
+import { useTheme } from '../../context/useTheme';
 import { Country } from '../../../types/Country';
 import style from './CountryItem.module.scss';
 
@@ -6,8 +7,13 @@ interface CartItemProps {
 }
 
 export const CountryItem: React.FC<CartItemProps> = ({ country }) => {
+  const { theme } = useTheme();
   return (
-    <li className={style.item}>
+    <li
+      className={
+        theme === 'dark' ? `${style.item} ${style.darkMode}` : style.item
+      }
+    >
       <img className={style.img} src={country.flags.png} alt="flag image" />
       <div className={style.wrapper}>
         <h2 className={style.title}>{country.name.common}</h2>
