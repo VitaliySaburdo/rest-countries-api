@@ -31,6 +31,12 @@ export const Pagination: React.FC<PaginationProps> = ({
   const renderPagination = () => {
     const pages = [];
 
+    console.log(countries.length);
+
+    if (countries.length <= 1) {
+      return null;
+    }
+
     if (currentPage > 1) {
       pages.push(
         <li key={'prev'}>
@@ -51,7 +57,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     }
 
     pages.push(
-      <li key={1}>
+      <li key={`page-1`}>
         <a
           href="#"
           onClick={(e) => {
@@ -76,7 +82,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 
     for (let i = startPage; i <= endPage; i++) {
       pages.push(
-        <li key={i}>
+        <li key={`page-${i}`}>
           <a
             href="#"
             onClick={(e) => {
