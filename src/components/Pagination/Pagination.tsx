@@ -31,6 +31,25 @@ export const Pagination: React.FC<PaginationProps> = ({
   const renderPagination = () => {
     const pages = [];
 
+    if (currentPage > 1) {
+      pages.push(
+        <li key={'prev'}>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              handlePageChange(currentPage - 1);
+            }}
+            style={{
+              fontWeight: currentPage === 1 ? 'bold' : 'normal',
+            }}
+          >
+            prev
+          </a>
+        </li>
+      );
+    }
+
     pages.push(
       <li key={1}>
         <a
@@ -40,8 +59,6 @@ export const Pagination: React.FC<PaginationProps> = ({
             handlePageChange(1);
           }}
           style={{
-            cursor: 'pointer',
-            marginRight: '8px',
             fontWeight: currentPage === 1 ? 'bold' : 'normal',
           }}
         >
@@ -55,7 +72,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     }
 
     const startPage = Math.max(2, currentPage - 1);
-    const endPage = Math.min(totalPages - 1, currentPage + 4);
+    const endPage = Math.min(totalPages - 1, currentPage + 1);
 
     for (let i = startPage; i <= endPage; i++) {
       pages.push(
@@ -67,8 +84,6 @@ export const Pagination: React.FC<PaginationProps> = ({
               handlePageChange(i);
             }}
             style={{
-              cursor: 'pointer',
-              marginRight: '8px',
               fontWeight: currentPage === i ? 'bold' : 'normal',
             }}
           >
@@ -91,8 +106,6 @@ export const Pagination: React.FC<PaginationProps> = ({
             handlePageChange(totalPages);
           }}
           style={{
-            cursor: 'pointer',
-            marginRight: '8px',
             fontWeight: currentPage === totalPages ? 'bold' : 'normal',
           }}
         >
@@ -100,6 +113,22 @@ export const Pagination: React.FC<PaginationProps> = ({
         </a>
       </li>
     );
+
+    if (currentPage < totalPages) {
+      pages.push(
+        <li key={'next'}>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              handlePageChange(currentPage + 1);
+            }}
+          >
+            next
+          </a>
+        </li>
+      );
+    }
 
     return pages;
   };

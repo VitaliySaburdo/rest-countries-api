@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Container } from '../Container';
 import { Header } from '../Header';
 import { InputField } from '../InputField';
@@ -57,9 +57,9 @@ function App() {
     setRegion(searchRegion);
   };
 
-  const handlePagination = (array: Country[]) => {
-    setCountriesArr(array);
-  };
+  const handleFragmentChange = useCallback((newFragment: Country[]) => {
+    setCountriesArr(newFragment);
+  }, []);
 
   return (
     <>
@@ -70,7 +70,10 @@ function App() {
             <InputField onSearch={handleOnSearch} />
             <FilterField onRegionFilter={handleOnRegionFilter} />
             <CountryList countries={countriesArr} />
-            <Pagination countries={countries} setFragment={handlePagination} />
+            <Pagination
+              countries={countries}
+              setFragment={handleFragmentChange}
+            />
           </Container>
         </Section>
       </main>
