@@ -15,16 +15,18 @@ function App() {
 
   useEffect(() => {
     const fetchCountries = async () => {
-      try {
-        const data = await getAllCountry();
-        setCountries(data as Country[]);
-      } catch (error) {
-        console.error('Country not found:', error);
-        setCountries([]);
+      if (!countries.length) {
+        try {
+          const data = await getAllCountry();
+          setCountries(data as Country[]);
+        } catch (error) {
+          console.error('Country not found:', error);
+          setCountries([]);
+        }
       }
     };
     fetchCountries();
-  }, []);
+  }, [countries.length]);
 
   return (
     <>
@@ -33,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage countries={countries} />} />
           <Route
-            path="/:country"
+            path="/country/:name"
             element={<CountryPage countries={countries} />}
           />
           <Route path="*" element={<NotFound />} />

@@ -3,6 +3,7 @@ import { Container } from '../Container';
 import Moon from '../../assets/images/moon.png';
 import Sun from '../../assets/images/sun.png';
 import style from './Header.module.scss';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
@@ -10,7 +11,9 @@ export const Header = () => {
   return (
     <Container>
       <header>
-        <h1 className={style.title}>Where in the world?</h1>
+        <Link to={'/'}>
+          <h1 className={style.title}>Where in the world?</h1>
+        </Link>
         <div className={style.wrapper}>
           <button
             onClick={toggleTheme}

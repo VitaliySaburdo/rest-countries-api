@@ -13,7 +13,7 @@ export const CountryList: React.FC<CountryListProps> = ({ countries }) => {
       <ul className={style.list}>
         {countries.map((country) => (
           <Link
-            to={country.name.common}
+            to={`country/${country.name.common}`}
             key={country.name.common}
             state={{ from: '/' }}
           >

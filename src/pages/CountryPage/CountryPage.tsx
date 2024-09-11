@@ -8,12 +8,12 @@ interface CountryPageProps {
 }
 
 const CountryPage: React.FC<CountryPageProps> = ({ countries }) => {
-  const { country } = useParams();
+  const { name } = useParams();
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
 
   const countryData = countries.find(
-    (countryItem) => country === countryItem.name.common
+    (countryItem) => name === countryItem.name.common
   );
 
   return (
