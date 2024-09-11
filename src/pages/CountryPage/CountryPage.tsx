@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { getCountryByName } from '../../ApiService/ApiService';
 
 const CountryPage = () => {
-  const [country, setCountry] = useState<Country[]>();
+  const [country, setCountry] = useState<Country>();
   const { name } = useParams();
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
@@ -16,7 +16,7 @@ const CountryPage = () => {
       if (name)
         try {
           const data = await getCountryByName(name);
-          setCountry(data);
+          setCountry(data[0]);
         } catch (error) {
           console.log(error);
         }
