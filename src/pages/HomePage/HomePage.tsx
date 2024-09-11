@@ -1,17 +1,18 @@
 import { useEffect, useState, useCallback } from 'react';
-import { Container } from '../components/Container';
-import { CountryList } from '../components/CountryList';
-import { FilterField } from '../components/FilterField';
-import { InputField } from '../components/InputField';
-import { Pagination } from '../components/Pagination';
-import { Section } from '../components/Section';
-import { Country } from '../../types/Country';
+import { Container } from '../../components/Container';
+import { CountryList } from '../../components/CountryList';
+import { FilterField } from '../../components/FilterField';
+import { InputField } from '../../components/InputField';
+import { Pagination } from '../../components/Pagination';
+import { Section } from '../../components/Section';
+import { Country } from '../../../types/Country';
+import style from './HomePage.module.scss';
 
 interface HomePageProps {
   countries: Country[];
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ countries }) => {
+const HomePage: React.FC<HomePageProps> = ({ countries }) => {
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
   const [fragment, setFragment] = useState<Country[]>([]);
   const [region, setRegion] = useState('');
@@ -47,8 +48,10 @@ export const HomePage: React.FC<HomePageProps> = ({ countries }) => {
     <>
       <Section>
         <Container>
-          <InputField onSearch={handleOnSearch} />
-          <FilterField onRegionFilter={handleOnRegionFilter} />
+          <div className={style.searchWrapper}>
+            <InputField onSearch={handleOnSearch} />
+            <FilterField onRegionFilter={handleOnRegionFilter} />
+          </div>
           <CountryList countries={fragment} />
           <Pagination
             countries={filteredCountries}
@@ -59,3 +62,5 @@ export const HomePage: React.FC<HomePageProps> = ({ countries }) => {
     </>
   );
 };
+
+export default HomePage;

@@ -1,0 +1,8 @@
+@import '../../assets/styles/index.scss';
+
+.searchWrapper {
+  @include mq(desk) {
+    display: flex;
+    justify-content: space-between;
+  }
+}

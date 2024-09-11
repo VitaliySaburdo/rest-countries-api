@@ -4,8 +4,10 @@ import { Header } from '../Header';
 import { useTheme } from '../../context/useTheme';
 import { getAllCountry } from '../../ApiService/ApiService';
 import { Country } from '../../../types/Country';
-import { HomePage } from '../../pages/HomePage';
+import HomePage from '../../pages/HomePage';
 import style from './App.module.scss';
+import CountryPage from '../../pages/CountryPage';
+import { NotFound } from '../../pages/NotFound';
 
 function App() {
   const { theme } = useTheme();
@@ -30,6 +32,11 @@ function App() {
       <main className={(theme === 'dark' && style.dark) || undefined}>
         <Routes>
           <Route path="/" element={<HomePage countries={countries} />} />
+          <Route
+            path="/:country"
+            element={<CountryPage countries={countries} />}
+          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </>

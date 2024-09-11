@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Country } from '../../../types/Country';
 import { CountryItem } from '../CountryItem';
 import style from './CountryList.module.scss';
@@ -10,8 +11,14 @@ export const CountryList: React.FC<CountryListProps> = ({ countries }) => {
   return (
     <>
       <ul className={style.list}>
-        {countries.map((country, index) => (
-          <CountryItem key={index} country={country} />
+        {countries.map((country) => (
+          <Link
+            to={country.name.common}
+            key={country.name.common}
+            state={{ from: '/' }}
+          >
+            <CountryItem country={country} />
+          </Link>
         ))}
       </ul>
     </>
