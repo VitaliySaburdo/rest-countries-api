@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTheme } from '../../context/useTheme';
 import { Country } from '../../../types/Country';
 import style from './CountryDetails.module.scss';
 
@@ -11,6 +12,7 @@ export const CountryDetails: React.FC<CountryDetailsProps> = ({
   country,
   countries,
 }) => {
+  const { theme } = useTheme();
   const {
     flags: { png },
     name: { common, nativeName },
@@ -47,39 +49,70 @@ export const CountryDetails: React.FC<CountryDetailsProps> = ({
           <div className={style.textWrapper}>
             <div>
               {' '}
-              <p>
-                <span className={style.boldTxt}>Native Name: </span>
+              <p className={style.txt}>
+                <span className={style.boldTxt}>Native Name:</span>
                 {nativeName[keyNativeName].common}
               </p>
-              <p>
+              <p className={style.txt}>
                 {' '}
-                <span className={style.boldTxt}>Population: </span>{' '}
+                <span className={style.boldTxt}>Population:</span>{' '}
                 {formattedNumber}
               </p>
-              <p>Region: {region}</p>
-              <p>Sub Region: {subregion}</p>
-              <p>Capital: {capital}</p>
+              <p className={style.txt}>
+                {' '}
+                <span className={style.boldTxt}>Region:</span>
+                {region}
+              </p>
+              <p className={style.txt}>
+                {' '}
+                <span className={style.boldTxt}>Sub Region:</span> {subregion}
+              </p>
+              <p className={style.txt}>
+                {' '}
+                <span className={style.boldTxt}>Capital:</span> {capital}
+              </p>
             </div>
             <div>
               {' '}
-              <p>Top Level Domain: {altSpellings[0].toLowerCase()}</p>
-              <p>Currencies: {currencies[keyCurrencies].name}</p>
-              <p>Languages: {lang}</p>
+              <p className={style.txt}>
+                {' '}
+                <span className={style.boldTxt}>Top Level Domain:</span>{' '}
+                {altSpellings[0].toLowerCase()}
+              </p>
+              <p className={style.txt}>
+                {' '}
+                <span className={style.boldTxt}>Currencies:</span>{' '}
+                {currencies[keyCurrencies].name}
+              </p>
+              <p className={style.txt}>
+                {' '}
+                <span className={style.boldTxt}>Languages:</span> {lang}
+              </p>
             </div>
           </div>
-          <ul>
+          <ul className={style.list}>
             Border Countries:
-            {borderCountries.length
-              ? borderCountries.map((country) => {
-                  return (
-                    <Link key={country} to={`/country/${country}`}>
-                      <li>
-                        <p>{country}</p>
-                      </li>
-                    </Link>
-                  );
-                })
-              : '  none'}
+            {borderCountries.length ? (
+              borderCountries.map((country) => {
+                return (
+                  <Link
+                    className={
+                      theme === 'dark'
+                        ? `${style.link} ${style.darkMode}`
+                        : style.link
+                    }
+                    key={country}
+                    to={`/country/${country}`}
+                  >
+                    <li>
+                      <p>{country}</p>
+                    </li>
+                  </Link>
+                );
+              })
+            ) : (
+              <p style={{ fontWeight: '600' }}>none</p>
+            )}
           </ul>
         </div>
       </div>

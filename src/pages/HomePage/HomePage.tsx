@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
+import { useTheme } from '../../context/useTheme';
 import { Container } from '../../components/Container';
 import { CountryList } from '../../components/CountryList';
 import { FilterField } from '../../components/FilterField';
@@ -13,6 +14,7 @@ interface HomePageProps {
 }
 
 const HomePage: React.FC<HomePageProps> = ({ countries }) => {
+  const { theme } = useTheme();
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
   const [fragment, setFragment] = useState<Country[]>([]);
   const [region, setRegion] = useState('');
@@ -46,7 +48,12 @@ const HomePage: React.FC<HomePageProps> = ({ countries }) => {
 
   return (
     <>
-      <Section>
+      <Section
+        style={{
+          backgroundColor:
+            theme === 'dark' ? 'hsl(207, 26%, 17%)' : 'hsl(223, 64%, 98%)',
+        }}
+      >
         <Container>
           <div className={style.searchWrapper}>
             <InputField onSearch={handleOnSearch} />

@@ -22,6 +22,38 @@
 }
 
 .boldTxt {
-  font-weight: bold;
-  font-size: 0.9rem;
+  font-weight: 800;
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+.txt {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.list {
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+}
+
+.link {
+  font-size: 1rem;
+  font-weight: 600;
+  @include centered-flex;
+  padding: 10px 30px 10px 30px;
+  border-radius: 5px;
+  gap: 5px;
+  background-color: $white;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.08);
+}
+
+.darkMode {
+  background-color: $dark-blue;
+  color: $white;
 }

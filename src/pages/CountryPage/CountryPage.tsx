@@ -7,6 +7,7 @@ import { CountryDetails } from '../../components/CountryDetails';
 import { Country } from '../../../types/Country';
 import IconBack from '../../assets/images/arrow-back.png';
 import style from './CountryPage.module.scss';
+import { useTheme } from '../../context/useTheme';
 
 interface CountryPageProps {
   countries: Country[];
@@ -17,6 +18,7 @@ const CountryPage: React.FC<CountryPageProps> = ({ countries }) => {
   const { name } = useParams();
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
+  const { theme } = useTheme();
 
   useEffect(() => {
     const fetchCountry = async () => {
@@ -31,11 +33,18 @@ const CountryPage: React.FC<CountryPageProps> = ({ countries }) => {
     fetchCountry();
   }, [name]);
 
+  console.log(name);
+
   return (
     <>
       <Section style={{ paddingTop: '70px' }}>
         <Container>
-          <Link className={style.link} to={backLinkHref}>
+          <Link
+            className={
+              theme === 'dark' ? `${style.link} ${style.darkMode}` : style.link
+            }
+            to={backLinkHref}
+          >
             <img src={IconBack} alt="icon-back" width={15} height={5} /> Back
           </Link>
 
