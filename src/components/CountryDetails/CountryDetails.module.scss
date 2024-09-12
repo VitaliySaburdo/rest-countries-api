@@ -1,1 +1,27 @@
 @import '../../assets/styles/index.scss';
+
+.wrapper {
+  display: flex;
+  gap: 120px;
+}
+
+.textWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.img {
+  aspect-ratio: 560/400;
+  width: 560px;
+}
+
+.title {
+  margin-top: 45px;
+  margin-bottom: 45px;
+  font-size: 25px;
+}
+
+.boldTxt {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
