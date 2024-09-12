@@ -7,7 +7,7 @@ import { Country } from '../../../types/Country';
 import HomePage from '../../pages/HomePage';
 import style from './App.module.scss';
 import CountryPage from '../../pages/CountryPage';
-import { NotFound } from '../../pages/NotFound';
+import NotFound from '../../pages/NotFound';
 
 function App() {
   const { theme } = useTheme();
@@ -25,6 +25,7 @@ function App() {
         }
       }
     };
+
     fetchCountries();
   }, [countries.length]);
 
@@ -34,7 +35,10 @@ function App() {
       <main className={(theme === 'dark' && style.dark) || undefined}>
         <Routes>
           <Route path="/" element={<HomePage countries={countries} />} />
-          <Route path="/country/:name" element={<CountryPage />} />
+          <Route
+            path="/country/:name"
+            element={<CountryPage countries={countries} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

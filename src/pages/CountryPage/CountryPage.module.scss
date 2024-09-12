@@ -1,0 +1,12 @@
+@import '../../assets/styles/index.scss';
+
+.link {
+  @include centered-flex;
+  padding: 10px 30px 10px 30px;
+  border-radius: 5px;
+  gap: 5px;
+  width: 100px;
+  border: 1px solid $bcg-dark-blue;
+  background-color: $white;
+  box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.08);
+}

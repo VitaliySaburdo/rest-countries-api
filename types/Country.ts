@@ -64,6 +64,7 @@ export interface Country {
   timezones: string[];
   continents: string[];
   flags: {
+    alt: string;
     png: string;
     svg: string;
   };

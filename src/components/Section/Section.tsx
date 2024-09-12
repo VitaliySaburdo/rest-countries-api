@@ -5,6 +5,6 @@ interface SectionProps {
   style?: React.CSSProperties;
 }
 
-export const Section: React.FC<SectionProps> = ({ children }) => {
-  return <section>{children}</section>;
+export const Section: React.FC<SectionProps> = ({ children, style }) => {
+  return <section style={style}>{children}</section>;
 };
