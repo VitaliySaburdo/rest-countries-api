@@ -16,7 +16,7 @@ export const getAllCountry = async () => {
 
 export const getCountryByName = async (name: string) => {
   try {
-    const { data } = await axios.get(`${BASE_URL}name/${name}`);
+    const { data } = await axios.get(`${BASE_URL}name/${name}?fullText=true`);
     return data;
   } catch (error) {
     console.error(`Error fetching country by name "${name}":`, error);
