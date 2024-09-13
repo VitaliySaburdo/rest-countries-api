@@ -1,8 +1,15 @@
-@import "../../assets/styles/index.scss";
+@import '../../assets/styles/index.scss';
 
 .searchWrapper {
   @include mq(desk) {
     display: flex;
     justify-content: space-between;
   }
+}
+
+.searchError {
+  padding-top: 300px;
+  padding-bottom: 100px;
+  @include centered-flex;
+  font-size: 1.2rem;
 }

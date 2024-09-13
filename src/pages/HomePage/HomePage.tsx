@@ -59,7 +59,15 @@ const HomePage: React.FC<HomePageProps> = ({ countries }) => {
             <InputField onSearch={handleOnSearch} />
             <FilterField onRegionFilter={handleOnRegionFilter} />
           </div>
-          <CountryList countries={fragment} />
+          {fragment.length ? (
+            <CountryList countries={fragment} />
+          ) : (
+            <>
+              <div className={style.searchError}>
+                Countries named "{search}" not found
+              </div>
+            </>
+          )}
           <Pagination
             countries={filteredCountries}
             setFragment={handleFragmentChange}
