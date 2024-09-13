@@ -4,14 +4,14 @@ import { CountryItem } from '../CountryItem';
 import style from './CountryList.module.scss';
 
 interface CountryListProps {
-  countries: Country[];
+  currentItems: Country[];
 }
 
-export const CountryList: React.FC<CountryListProps> = ({ countries }) => {
+export const CountryList: React.FC<CountryListProps> = ({ currentItems }) => {
   return (
     <>
       <ul className={style.list}>
-        {countries.map((country) => (
+        {currentItems.map((country) => (
           <Link
             to={`country/${country.name.common.toLowerCase()}`}
             key={country.name.common}

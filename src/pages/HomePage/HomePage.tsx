@@ -16,7 +16,7 @@ interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = ({ countries }) => {
   const { theme } = useTheme();
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
-  const [fragment, setFragment] = useState<Country[]>([]);
+
   const [region, setRegion] = useState('');
   const [search, setSearch] = useState('');
 
@@ -42,10 +42,6 @@ const HomePage: React.FC<HomePageProps> = ({ countries }) => {
     setRegion(regionValue);
   };
 
-  const handleFragmentChange = useCallback((paginationCountries: Country[]) => {
-    setFragment(paginationCountries);
-  }, []);
-
   return (
     <>
       <Section
@@ -59,19 +55,8 @@ const HomePage: React.FC<HomePageProps> = ({ countries }) => {
             <InputField onSearch={handleOnSearch} />
             <FilterField onRegionFilter={handleOnRegionFilter} />
           </div>
-          {fragment.length || !search ? (
-            <CountryList countries={fragment} />
-          ) : (
-            <>
-              <div className={style.searchError}>
-                Countries named "{search}" not found
-              </div>
-            </>
-          )}
-          <Pagination
-            countries={filteredCountries}
-            setFragment={handleFragmentChange}
-          />
+
+          <Pagination countries={filteredCountries} />
         </Container>
       </Section>
     </>
