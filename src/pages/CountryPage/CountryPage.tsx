@@ -45,7 +45,16 @@ const CountryPage: React.FC<CountryPageProps> = ({ countries }) => {
             }
             to={backLinkHref}
           >
-            <img src={IconBack} alt="icon-back" width={15} height={5} /> Back
+            <img
+              className={
+                theme === 'dark' ? style.darkModeIcon : style.lightModeIcon
+              }
+              src={IconBack}
+              alt="icon-back"
+              width={15}
+              height={5}
+            />{' '}
+            Back
           </Link>
 
           {country && (
