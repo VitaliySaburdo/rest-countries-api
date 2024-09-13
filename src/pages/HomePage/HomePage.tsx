@@ -59,7 +59,7 @@ const HomePage: React.FC<HomePageProps> = ({ countries }) => {
             <InputField onSearch={handleOnSearch} />
             <FilterField onRegionFilter={handleOnRegionFilter} />
           </div>
-          {fragment.length ? (
+          {fragment.length || !search ? (
             <CountryList countries={fragment} />
           ) : (
             <>
