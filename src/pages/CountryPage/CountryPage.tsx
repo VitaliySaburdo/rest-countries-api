@@ -37,7 +37,7 @@ const CountryPage: React.FC<CountryPageProps> = ({ countries }) => {
 
   return (
     <>
-      <Section style={{ paddingTop: '70px' }}>
+      <Section>
         <Container>
           <Link
             className={

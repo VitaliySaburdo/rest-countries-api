@@ -47,7 +47,7 @@ export const CountryDetails: React.FC<CountryDetailsProps> = ({
         <div style={{ flex: '1' }}>
           <h2 className={style.title}>{common}</h2>
           <div className={style.textWrapper}>
-            <div>
+            <div className={style.shell}>
               {' '}
               <p className={style.txt}>
                 <span className={style.boldTxt}>Native Name:</span>

@@ -1,4 +1,9 @@
+@import '../../assets/styles/index.scss';
+
 section {
-  padding-top: 20px;
+  padding-top: 35px;
   padding-bottom: 300px;
+  @include mq(desk) {
+    padding-top: 70px;
+  }
 }

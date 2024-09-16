@@ -1,4 +1,4 @@
-@import "../../assets/styles/index.scss";
+@import '../../assets/styles/index.scss';
 
 header {
   display: flex;
@@ -9,8 +9,11 @@ header {
 }
 
 .title {
-  font-size: 16px;
+  font-size: 0.8rem;
   font-weight: 800;
+  @include mq(desk) {
+    font-size: 1rem;
+  }
 }
 
 .wrapper {

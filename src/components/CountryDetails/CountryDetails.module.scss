@@ -1,23 +1,40 @@
 @import '../../assets/styles/index.scss';
 
 .wrapper {
-  display: flex;
-  gap: 120px;
+  display: block;
+  @include mq(desk) {
+    display: flex;
+    gap: 7.5rem;
+  }
+}
+
+.shell {
+  margin-bottom: 40px;
+  @include mq(desk) {
+    margin-bottom: 0;
+  }
 }
 
 .textWrapper {
-  display: flex;
-  justify-content: space-between;
+  display: block;
+  @include mq(desk) {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .img {
-  height: 400px;
-  width: 35rem;
+  height: 14.375rem;
+  width: 20rem;
+  @include mq(desk) {
+    height: 25rem;
+    width: 35rem;
+  }
 }
 
 .title {
-  margin-top: 45px;
-  margin-bottom: 45px;
+  padding-top: 45px;
+  padding-bottom: 45px;
   font-size: 25px;
 }
 
