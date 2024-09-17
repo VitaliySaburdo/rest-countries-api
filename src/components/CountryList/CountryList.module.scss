@@ -1,10 +1,14 @@
-@import "../../assets/styles/index.scss";
+@import '../../assets/styles/index.scss';
 
 .list {
   margin-top: 2rem;
   margin-bottom: 2rem;
   display: grid;
   gap: 1rem;
+  @include mq(tab) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
   @include mq(desk) {
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;

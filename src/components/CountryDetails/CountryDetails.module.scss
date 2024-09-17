@@ -2,31 +2,34 @@
 
 .wrapper {
   display: block;
-  @include mq(desk) {
+  @media screen and (min-width: 900px) {
     display: flex;
+    gap: 3rem;
+  }
+  @media screen and (min-width: 1200px) {
     gap: 7.5rem;
   }
 }
 
 .shell {
   margin-bottom: 40px;
-  @include mq(desk) {
+  @include mq(tab) {
     margin-bottom: 0;
   }
 }
 
 .textWrapper {
   display: block;
-  @include mq(desk) {
+  @media screen and (min-width: 1200px) {
     display: flex;
     justify-content: space-between;
   }
 }
 
 .img {
-  height: 14.375rem;
-  width: 20rem;
-  @include mq(desk) {
+  aspect-ratio: 130/80;
+  width: 100%;
+  @media screen and (min-width: 900px) {
     height: 25rem;
     width: 35rem;
   }
