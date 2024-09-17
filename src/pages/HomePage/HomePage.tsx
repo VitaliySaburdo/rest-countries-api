@@ -1,7 +1,6 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { useTheme } from '../../context/useTheme';
 import { Container } from '../../components/Container';
-import { CountryList } from '../../components/CountryList';
 import { FilterField } from '../../components/FilterField';
 import { InputField } from '../../components/InputField';
 import { Pagination } from '../../components/Pagination';
