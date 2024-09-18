@@ -10,17 +10,23 @@ interface CountryListProps {
 export const CountryList: React.FC<CountryListProps> = ({ currentItems }) => {
   return (
     <>
-      <ul className={style.list}>
-        {currentItems.map((country) => (
-          <Link
-            to={`country/${country.name.common.toLowerCase()}`}
-            key={country.name.common}
-            state={{ from: '/' }}
-          >
-            <CountryItem country={country} />
-          </Link>
-        ))}
-      </ul>
+      {currentItems.length ? (
+        <ul className={style.list}>
+          {currentItems.map((country) => (
+            <Link
+              to={`country/${country.name.common.toLowerCase()}`}
+              key={country.name.common}
+              state={{ from: '/' }}
+            >
+              <CountryItem country={country} />
+            </Link>
+          ))}
+        </ul>
+      ) : (
+        <h2 className={style.message}>
+          No countries were found matching your request
+        </h2>
+      )}
     </>
   );
 };

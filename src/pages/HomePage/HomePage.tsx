@@ -1,7 +1,6 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { useTheme } from '../../context/useTheme';
 import { Container } from '../../components/Container';
-import { CountryList } from '../../components/CountryList';
 import { FilterField } from '../../components/FilterField';
 import { InputField } from '../../components/InputField';
 import { Pagination } from '../../components/Pagination';
@@ -44,18 +43,12 @@ const HomePage: React.FC<HomePageProps> = ({ countries }) => {
 
   return (
     <>
-      <Section
-        style={{
-          backgroundColor:
-            theme === 'dark' ? 'hsl(207, 26%, 17%)' : 'hsl(223, 64%, 98%)',
-        }}
-      >
+      <Section variant={theme}>
         <Container>
           <div className={style.searchWrapper}>
             <InputField onSearch={handleOnSearch} />
             <FilterField onRegionFilter={handleOnRegionFilter} />
           </div>
-
           <Pagination countries={filteredCountries} />
         </Container>
       </Section>

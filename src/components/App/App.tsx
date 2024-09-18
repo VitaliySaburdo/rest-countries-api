@@ -1,16 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Header } from '../Header';
-import { useTheme } from '../../context/useTheme';
 import { getAllCountry } from '../../ApiService/ApiService';
 import { Country } from '../../../types/Country';
 import HomePage from '../../pages/HomePage';
-import style from './App.module.scss';
 import CountryPage from '../../pages/CountryPage';
 import NotFound from '../../pages/NotFound';
 
 function App() {
-  const { theme } = useTheme();
   const [countries, setCountries] = useState<Country[]>([]);
 
   useEffect(() => {
@@ -32,7 +29,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className={(theme === 'dark' && style.dark) || undefined}>
+      <main>
         <Routes>
           <Route path="/" element={<HomePage countries={countries} />} />
           <Route

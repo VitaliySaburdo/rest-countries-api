@@ -96,11 +96,7 @@ export const CountryDetails: React.FC<CountryDetailsProps> = ({
               borderCountries.map((country) => {
                 return (
                   <Link
-                    className={
-                      theme === 'dark'
-                        ? `${style.link} ${style.darkMode}`
-                        : style.link
-                    }
+                    className={`${style.link} ${theme}`}
                     key={country}
                     to={`/country/${country}`}
                   >

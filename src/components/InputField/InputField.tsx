@@ -28,9 +28,7 @@ export const InputField: React.FC<InputFieldProps> = ({ onSearch }) => {
         />
         <input
           onInput={handleSearch}
-          className={
-            theme === 'dark' ? `${style.field} ${style.darkField}` : style.field
-          }
+          className={`${style.field} ${theme}`}
           type="text"
           name="country"
           id="country"

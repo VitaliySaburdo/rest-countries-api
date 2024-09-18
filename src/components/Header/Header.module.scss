@@ -23,14 +23,13 @@ header {
 
 .btn {
   @include invisible-btn;
+  @include centered-flex;
   gap: 20px;
-  width: 20px;
-  height: 20px;
 }
 
 .icon {
-  width: 100%;
-  height: 100%;
+  width: 20px;
+  height: 20px;
   transition: transform 0.3s ease;
   transform: scale(0.8);
 }

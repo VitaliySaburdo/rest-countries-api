@@ -28,9 +28,7 @@ export const FilterField: React.FC<FilterFieldProps> = ({ onRegionFilter }) => {
         />
         <select
           onChange={handleOnSelect}
-          className={
-            theme === 'dark' ? `${style.darkField} ${style.field}` : style.field
-          }
+          className={`${style.field} ${theme}`}
           name="filter"
           id="filter"
         >

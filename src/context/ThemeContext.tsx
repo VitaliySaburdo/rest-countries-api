@@ -21,7 +21,7 @@ export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
   );
 
   useEffect(() => {
-    document.body.className = theme === 'light' ? 'light-mode' : 'dark-mode';
+    document.body.className = theme === 'light' ? 'light' : 'dark';
     localStorage.setItem('theme', theme);
   }, [theme]);
 

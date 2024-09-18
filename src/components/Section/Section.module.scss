@@ -3,6 +3,15 @@
 section {
   padding-top: 35px;
   padding-bottom: 300px;
+
+  &.dark {
+    background-color: $bcg-dark-blue;
+  }
+
+  &.light {
+    background-color: hsl(223, 64%, 98%);
+  }
+
   @include mq(desk) {
     padding-top: 70px;
   }

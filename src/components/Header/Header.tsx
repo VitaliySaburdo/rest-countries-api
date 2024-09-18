@@ -25,14 +25,12 @@ export const Header = () => {
                 theme === 'dark' ? style.darkModeIcon : style.lightModeIcon
               }`}
               src={theme === 'dark' ? Moon : Sun}
-              alt={
-                theme === 'dark'
-                  ? 'Switch to light mode'
-                  : 'Switch to dark mode'
-              }
+              alt={`Switch to ${theme} mode`}
             />
+            <p className={theme}>
+              {theme === 'dark' ? 'Dark mode' : 'Light mode'}
+            </p>
           </button>
-          <p>{theme === 'dark' ? 'Dark mode' : 'Light mode'}</p>
         </div>
       </header>
     </Container>

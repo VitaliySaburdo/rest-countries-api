@@ -33,8 +33,6 @@ const CountryPage: React.FC<CountryPageProps> = ({ countries }) => {
     fetchCountry();
   }, [name]);
 
-  console.log(name);
-
   return (
     <>
       <Section>
