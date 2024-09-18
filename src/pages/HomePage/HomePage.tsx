@@ -49,7 +49,13 @@ const HomePage: React.FC<HomePageProps> = ({ countries }) => {
             <InputField onSearch={handleOnSearch} />
             <FilterField onRegionFilter={handleOnRegionFilter} />
           </div>
-          <Pagination countries={filteredCountries} />
+          {filteredCountries ? (
+            <Pagination countries={filteredCountries} />
+          ) : (
+            <h2 className={style.message}>
+              No countries were found matching your request
+            </h2>
+          )}
         </Container>
       </Section>
     </>
