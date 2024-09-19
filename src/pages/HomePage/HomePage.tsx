@@ -51,7 +51,7 @@ const HomePage: React.FC<HomePageProps> = ({ countries, isLoading }) => {
           </div>
           {isLoading ? (
             <h2>Loading...</h2>
-          ) : !filteredCountries ? (
+          ) : filteredCountries.length > 0 ? (
             <Pagination countries={filteredCountries} />
           ) : (
             <h2 className={style.message}>
