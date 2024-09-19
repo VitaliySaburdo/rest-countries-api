@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useLoading } from '../../hooks/useLoading';
 import { Header } from '../Header';
 import { getAllCountry } from '../../ApiService/ApiService';
 import { Country } from '../../../types/Country';
@@ -10,20 +9,19 @@ import NotFound from '../../pages/NotFound';
 
 function App() {
   const [countries, setCountries] = useState<Country[]>([]);
-  const { setLoading } = useLoading();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchCountries = async () => {
       if (!countries.length) {
         try {
-          setLoading(true);
           const data = await getAllCountry();
           setCountries(data as Country[]);
         } catch (error) {
           console.error('Country not found:', error);
           setCountries([]);
         } finally {
-          setLoading(false);
+          setIsLoading(false);
         }
       }
     };
@@ -36,7 +34,10 @@ function App() {
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<HomePage countries={countries} />} />
+          <Route
+            path="/"
+            element={<HomePage countries={countries} isLoading={isLoading} />}
+          />
           <Route
             path="/country/:name"
             element={<CountryPage countries={countries} />}

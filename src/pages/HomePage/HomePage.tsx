@@ -10,9 +10,10 @@ import style from './HomePage.module.scss';
 
 interface HomePageProps {
   countries: Country[];
+  isLoading: boolean;
 }
 
-const HomePage: React.FC<HomePageProps> = ({ countries }) => {
+const HomePage: React.FC<HomePageProps> = ({ countries, isLoading }) => {
   const { theme } = useTheme();
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
 
@@ -48,7 +49,9 @@ const HomePage: React.FC<HomePageProps> = ({ countries }) => {
             <InputField onSearch={handleOnSearch} />
             <FilterField onRegionFilter={handleOnRegionFilter} />
           </div>
-          {filteredCountries ? (
+          {isLoading ? (
+            <h2>Loading...</h2>
+          ) : countries.length > 0 ? (
             <Pagination countries={filteredCountries} />
           ) : (
             <h2 className={style.message}>
