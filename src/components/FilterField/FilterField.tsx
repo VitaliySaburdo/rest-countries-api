@@ -1,4 +1,4 @@
-import { useTheme } from '../../context/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 import style from './FilterField.module.scss';
 import Arrow from '../../assets/images/icon-arrow-down.png';
 

@@ -7,7 +7,7 @@ import { CountryDetails } from '../../components/CountryDetails';
 import { Country } from '../../../types/Country';
 import IconBack from '../../assets/images/arrow-back.png';
 import style from './CountryPage.module.scss';
-import { useTheme } from '../../context/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 
 interface CountryPageProps {
   countries: Country[];

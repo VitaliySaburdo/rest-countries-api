@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useTheme } from '../../context/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 import { Country } from '../../../types/Country';
 import style from './CountryDetails.module.scss';
 

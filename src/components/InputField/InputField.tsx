@@ -1,4 +1,4 @@
-import { useTheme } from '../../context/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 import Search from '../../assets/images/search.png';
 import style from './InputField.module.scss';
 

@@ -1,4 +1,4 @@
-import { useTheme } from '../../context/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 import { Country } from '../../../types/Country';
 import style from './CountryItem.module.scss';
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useTheme } from '../../context/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 import { Container } from '../../components/Container';
 import { FilterField } from '../../components/FilterField';
 import { InputField } from '../../components/InputField';
@@ -40,7 +40,6 @@ const HomePage: React.FC<HomePageProps> = ({ countries }) => {
   const handleOnRegionFilter = (regionValue: string) => {
     setRegion(regionValue);
   };
-
   return (
     <>
       <Section variant={theme}>

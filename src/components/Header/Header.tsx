@@ -1,4 +1,4 @@
-import { useTheme } from '../../context/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 import { Container } from '../Container';
 import Moon from '../../assets/images/moon.png';
 import Sun from '../../assets/images/sun.png';
