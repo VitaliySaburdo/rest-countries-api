@@ -43,7 +43,9 @@ export const CountryDetails: React.FC<CountryDetailsProps> = ({
   return (
     <>
       <div className={style.wrapper}>
-        <img className={style.img} src={png} alt="flag" />
+        <div className={style.imgWrapper}>
+          <img className={style.img} src={png} alt="flag" />
+        </div>
         <div style={{ flex: '1' }}>
           <h2 className={style.title}>{common}</h2>
           <div className={style.textWrapper}>
