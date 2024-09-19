@@ -12,13 +12,15 @@ export const CountryList: React.FC<CountryListProps> = ({ currentItems }) => {
     <>
       <ul className={style.list}>
         {currentItems.map((country) => (
-          <Link
-            to={`country/${country.name.common.toLowerCase()}`}
-            key={country.name.common}
-            state={{ from: '/' }}
-          >
-            <CountryItem country={country} />
-          </Link>
+          <li>
+            <Link
+              to={`country/${country.name.common.toLowerCase()}`}
+              key={country.name.common}
+              state={{ from: '/' }}
+            >
+              <CountryItem country={country} />
+            </Link>
+          </li>
         ))}
       </ul>
     </>

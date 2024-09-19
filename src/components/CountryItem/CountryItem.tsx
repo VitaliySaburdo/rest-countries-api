@@ -9,7 +9,7 @@ interface CartItemProps {
 export const CountryItem: React.FC<CartItemProps> = ({ country }) => {
   const { theme } = useTheme();
   return (
-    <li className={`${style.item} ${theme}`}>
+    <div className={`${style.item} ${theme}`}>
       <img className={style.img} src={country.flags.png} alt="flag image" />
       <div className={style.wrapper}>
         <h2 className={style.title}>{country.name.common}</h2>
@@ -23,6 +23,6 @@ export const CountryItem: React.FC<CartItemProps> = ({ country }) => {
           Capital: <span className={style.data}>{country.capital}</span>
         </p>
       </div>
-    </li>
+    </div>
   );
 };
