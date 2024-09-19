@@ -37,7 +37,6 @@ export const Pagination: React.FC<PaginationProps> = ({ countries }) => {
           pageCount={pageCount}
           previousLabel="<"
           renderOnZeroPageCount={null}
-          aria-label="Pagination"
         />
       )}
     </>

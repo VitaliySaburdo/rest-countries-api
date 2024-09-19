@@ -26,7 +26,6 @@ export const FilterField: React.FC<FilterFieldProps> = ({ onRegionFilter }) => {
           alt="arrow"
           width={10}
         />
-        <label htmlFor="filter"></label>
         <select
           onChange={handleOnSelect}
           className={`${style.field} ${theme}`}
