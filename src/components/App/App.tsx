@@ -12,6 +12,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    
     const fetchCountries = async () => {
       if (!countries.length) {
         try {

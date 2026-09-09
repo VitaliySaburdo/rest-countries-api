@@ -1,13 +1,18 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://restcountries.com/v3.1/';
+const BASE_URL = 'https://api.restcountries.com/countries/v5';
+
+const API_KEY = `rc_live_bf29b39cd2004d209268b5c3cf4af067`;
+
 
 export const getAllCountry = async () => {
   try {
-    const { data } = await axios.get(
-      `${BASE_URL}all?fields=name,capital,flags,population,region,cca3`
-    );
-    return data;
+    const { data } = await axios.get(`${BASE_URL}`, {
+ headers: { 'Authorization': API_KEY } 
+    });
+
+    console.log(data);
+    return data.data.objects;
   } catch (error) {
     console.error('Error fetching countries:', error);
     throw error;
