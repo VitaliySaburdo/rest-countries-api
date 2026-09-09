@@ -8,14 +8,15 @@ interface CountryListProps {
 }
 
 export const CountryList: React.FC<CountryListProps> = ({ currentItems }) => {
+  console.log(currentItems)
   return (
     <>
       <ul className={style.list}>
         {currentItems.map((country) => (
           <li>
             <Link
-              to={`country/${country.name.common.toLowerCase()}`}
-              key={country.name.common}
+              to={`country/${country.names.common.toLowerCase()}`}
+              key={country.names.common}
               state={{ from: '/' }}
             >
               <CountryItem country={country} />

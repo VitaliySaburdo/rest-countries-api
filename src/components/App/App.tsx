@@ -17,6 +17,7 @@ function App() {
       if (!countries.length) {
         try {
           const data = await getAllCountry();
+          console.log('Fetched countries:', data);
           setCountries(data as Country[]);
         } catch (error) {
           console.error('Country not found:', error);
@@ -26,6 +27,8 @@ function App() {
         }
       }
     };
+
+    console.log('Countries length:', countries.length);
 
     fetchCountries();
   }, [countries.length]);

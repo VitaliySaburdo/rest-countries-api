@@ -1,49 +1,129 @@
 export interface Country {
-  name: {
+  uuid: string;
+
+  names: {
     common: string;
     official: string;
-    nativeName: {
+    native: {
       [key: string]: {
-        official: string;
         common: string;
+        official: string;
+      };
+    };
+    alternates: string[];
+    translations: {
+      [key: string]: {
+        common: string;
+        official: string;
       };
     };
   };
-  tld: string[];
-  cca2: string;
-  ccn3: string;
-  cca3: string;
-  cioc: string;
-  independent: boolean;
-  status: string;
-  unMember: boolean;
-  currencies: {
-    [key: string]: {
-      name: string;
-      symbol: string;
+
+  flag: {
+    emoji: string;
+    unicode: string;
+    html_entity: string;
+    description: string;
+    url_png: string;
+    url_svg: string;
+    colors: {
+      dominant: string;
+      prominent: string;
+      palette: string[];
+      swatches: {
+        [key: string]: string;
+      };
     };
   };
-  idd: {
-    root: string;
-    suffixes: string[];
-  };
-  capital: string[];
-  altSpellings: string[];
+
+  population: number;
+
   region: string;
   subregion: string;
-  languages: {
-    [key: string]: string;
-  };
-  translations: {
-    [key: string]: {
-      official: string;
-      common: string;
+
+  capitals: {
+    name: string;
+    coordinates: {
+      lat: number;
+      lng: number;
     };
-  };
-  latlng: [number, number];
-  landlocked: boolean;
+    attributes: {
+      [key: string]: unknown;
+    };
+  }[];
+
   borders: string[];
-  area: number;
+
+  continents: string[];
+
+  area: {
+    kilometers: number;
+    miles: number;
+  };
+
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
+
+  landlocked: boolean;
+
+  currencies: {
+    code: string;
+    name: string;
+    symbol: string;
+  }[];
+
+  languages: {
+    bcp47: string;
+    iso639_1: string;
+    iso639_2b: string;
+    iso639_2t: string;
+    iso639_3: string;
+    name: string;
+    native_name: string;
+  }[];
+
+  calling_codes: string[];
+
+  cars: {
+    driving_side: string;
+    signs: string[];
+  };
+
+  classification: {
+    dependency: boolean;
+    dependency_type: string;
+    disputed: boolean;
+    iso_status: string;
+    sovereign: boolean;
+    un_member: boolean;
+    un_observer: boolean;
+  };
+
+  codes: {
+    alpha_2: string;
+    alpha_3: string;
+    ccn3: string;
+    cioc: string;
+    fifa: string;
+    fips: string;
+    gec: string;
+  };
+
+  date: {
+    academic_year_start: {
+      day: number;
+      month: number;
+    };
+    fiscal_year_start: {
+      corporate: unknown;
+      government: unknown;
+      personal: unknown;
+    };
+    start_of_week: string;
+  };
+
   demonyms: {
     eng: {
       f: string;
@@ -54,26 +134,73 @@ export interface Country {
       m: string;
     };
   };
-  flag: string;
-  maps: {
-    googleMaps: string;
-    openStreetMaps: string;
+
+  descriptions: {
+    short: string;
+    long: string;
   };
-  population: number;
-  fifa: string;
+
+  economy: {
+    gini_coefficient: {
+      [key: string]: unknown;
+    };
+  };
+
+  government_type: string;
+
+  links: {
+    google_maps: string;
+    official: string;
+    open_street_maps: string;
+    wikipedia: string;
+  };
+
+  memberships: {
+    african_union: boolean;
+    arab_league: boolean;
+    asean: boolean;
+    brics: boolean;
+    commonwealth: boolean;
+    eu: boolean;
+    eurozone: boolean;
+    g7: boolean;
+    g20: boolean;
+    nato: boolean;
+    oecd: boolean;
+    opec: boolean;
+    schengen: boolean;
+    un: boolean;
+  };
+
+  number_format: {
+    decimal_separator: string;
+    thousands_separator: string;
+  };
+
+  parent: {
+    alpha_2: string;
+    alpha_3: string;
+  };
+
+  postal_code: {
+    format: string;
+    regex: string;
+  };
+
   timezones: string[];
-  continents: string[];
-  flags: {
-    alt: string;
-    png: string;
-    svg: string;
+
+  tlds: string[];
+
+  units: {
+    measurement_system: string;
+    temperature_scale: string;
   };
-  coatOfArms: {
-    png: string;
-    svg: string;
-  };
-  startOfWeek: string;
-  capitalInfo: {
-    latlng: [number, number];
+
+  assets: unknown[];
+
+  leaders: unknown[];
+
+  _meta: {
+    lastUpdatedTimestamp: number;
   };
 }

@@ -10,7 +10,6 @@ export const getAllCountry = async () => {
     const { data } = await axios.get(`${BASE_URL}`, {
  headers: { 'Authorization': API_KEY } 
     });
-
     console.log(data);
     return data.data.objects;
   } catch (error) {

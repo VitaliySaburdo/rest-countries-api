@@ -20,11 +20,13 @@ const HomePage: React.FC<HomePageProps> = ({ countries, isLoading }) => {
   const [region, setRegion] = useState('');
   const [search, setSearch] = useState('');
 
+  console.log('Countries in HomePage:', countries);
+
   useEffect(() => {
     let data = [...countries];
     if (search) {
       data = data.filter((country) =>
-        country.name.common.toLowerCase().includes(search.toLowerCase())
+        country.names.common.toLowerCase().includes(search.toLowerCase())
       );
     }
     if (region) {

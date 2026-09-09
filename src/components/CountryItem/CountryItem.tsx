@@ -10,9 +10,9 @@ export const CountryItem: React.FC<CartItemProps> = ({ country }) => {
   const { theme } = useTheme();
   return (
     <div className={`${style.item} ${theme}`}>
-      <img className={style.img} src={country.flags.png} alt="flag image" />
+      <img className={style.img} src={country.flag.url_png && country.flag.url_svg}alt="flag image" />
       <div className={style.wrapper}>
-        <h2 className={style.title}>{country.name.common}</h2>
+        <h2 className={style.title}>{country.names.common}</h2>
         <p className={style.text}>
           Population: <span className={style.data}>{country.population}</span>
         </p>
